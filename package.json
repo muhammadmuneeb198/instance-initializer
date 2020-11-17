@@ -1,0 +1,45 @@
+{
+  "name": "instance-initializer",
+  "version": "1.0.0",
+  "description": "Create & initialises a sandbox by deploying code & data and bootstrapping the instance (i.e. builds the search index).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SalesforceCommerceCloud/instance-initializer.git"
+  },
+  "author": "Salesforce Customer Success Group",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SalesforceCommerceCloud/instance-initializer/issues"
+  },
+  "scripts": {
+    "postinstall": "npm explore workspace-bootstrap-scripts -- node scripts/postinstall.js && npm explore workspace-bootstrap-scripts -- shx cp ./dw.json ../../dw.json",
+    "auth": "sfcc-ci client:auth -D",
+    "sandbox:create": "sfcc-ci sandbox:create -s -d -j --ttl 144 > ./node_modules/workspace-bootstrap-scripts/sandbox.output",
+    "sandbox:postsandboxcreate": "npm explore workspace-bootstrap-scripts -- node scripts/postsandboxcreate.js && npm explore workspace-bootstrap-scripts -- shx cp ./dw.json ../../dw.json",
+    "data:zip": "cd node_modules/refarchdata/ && cross-zip -r -q demo_data_sfra.zip demo_data_sfra && shx mv demo_data_sfra.zip ../../demo_data_sfra.zip",
+    "data:upload": "sfcc-ci instance:upload demo_data_sfra.zip",
+    "data:import": "sfcc-ci instance:import demo_data_sfra.zip -s",
+    "data:rebuildurls": "sfcc-ci job:run RebuildURLs -s",
+    "data:reindex": "sfcc-ci job:run Reindex -s",
+    "code:prepare": "cd ./node_modules/sfra && npm install && npm run compile:fonts && npm run compile:js && npm run compile:scss",
+    "code:zip": "cd ./node_modules/sfra && shx mkdir -p ../../tmp/code/version1 && shx cp -R cartridges/* ../../tmp/code/version1 && cd ../../tmp && cross-zip -r -q code.zip code && shx rm -r code",
+    "code:upload": "sfcc-ci code:deploy ./tmp/code.zip ",
+    "code:activate": "sfcc-ci code:activate version1",
+    "plugin:prepare": "cd ./node_modules/plugin_serviceworker && shx cp ../../dw.json dw.json && npm install && npm run data:create && npm run data:upload && npm run data:import",
+    "plugin:addswtemplate": "sfcc-ci cartridge:add plugin_serviceworker_sfra_templates --position first --siteid RefArch",
+    "plugin:addswplugin": "sfcc-ci cartridge:add plugin_serviceworker --position first --siteid RefArch",
+    "cleanup": "shx rm -f sandbox.output && shx rm -f demo_data_sfra.zip",
+    "all": "npm-run-all cleanup auth sandbox:* data:* code:* plugin:* cleanup"
+  },
+  "homepage": "https://github.com/SalesforceCommerceCloud/instance-initializer#readme",
+  "dependencies": {
+    "cross-zip-cli": "^1.0.0",
+    "npm-run-all": "^4.1.3",
+    "plugin_serviceworker": "git+ssh://git@github.com:SalesforceCommerceCloud/plugin_serviceworker.git",
+    "refarchdata": "git@bitbucket.org:royalcyberxdev/rapid-dev-metadata.git",
+    "sfcc-ci": "^2.6.0",
+    "sfra": "git+ssh://git@github.com:SalesforceCommerceCloud/storefront-reference-architecture.git#integration",
+    "shx": "^0.3.2",
+    "workspace-bootstrap-scripts": "git+ssh://git@github.com:SalesforceCommerceCloud/workspace-bootstrap-scripts.git"
+  }
+}

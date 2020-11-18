@@ -38,7 +38,7 @@
     "plugin_serviceworker": "git+ssh://git@github.com:SalesforceCommerceCloud/plugin_serviceworker.git",
     "refarchdata": "git+ssh://git@bitbucket.org:royalcyberxdev/rapid-dev-metadata.git",
     "sfcc-ci": "^2.6.0",
-    "sfra": "git+ssh://git@github.com:SalesforceCommerceCloud/storefront-reference-architecture.git",
+    "sfra": "git+ssh://git@bitbucket.org:royalcyberxdev/sfcc-rapid-dev.git",
     "shx": "^0.3.2",
     "workspace-bootstrap-scripts": "git+ssh://git@github.com:SalesforceCommerceCloud/workspace-bootstrap-scripts.git"
   }

@@ -35,8 +35,8 @@
   "dependencies": {
     "cross-zip-cli": "^1.0.0",
     "npm-run-all": "^4.1.3",
-    "plugin_serviceworker": "git+https://github.com/SalesforceCommerceCloud/plugin_serviceworker.git",
-    "refarchdata": "git+git+ssh://git@github.com:SalesforceCommerceCloud/storefrontdata.git",
+    "plugin_serviceworker": "git+ssh://git@github.com:SalesforceCommerceCloud/plugin_serviceworker.git",
+    "refarchdata": "git+ssh://git@github.com:SalesforceCommerceCloud/storefrontdata.git",
     "sfcc-ci": "^2.6.0",
     "sfra": "git+https://muhammadmuneeb@bitbucket.org/royalcyberxdev/sfcc-rapid-dev.git#release/release1.1",
     "shx": "^0.3.2",

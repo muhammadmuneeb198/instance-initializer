@@ -40,6 +40,7 @@
     "sfcc-ci": "^2.6.0",
     "sfra": "git+ssh://git@bitbucket.org:royalcyberxdev/sfcc-rapid-dev.git#release/release1.1",
     "shx": "^0.3.2",
+    "node-sass": "^4.12.0",
     "workspace-bootstrap-scripts": "git+ssh://git@github.com:SalesforceCommerceCloud/workspace-bootstrap-scripts.git"
   }
 }

@@ -12,7 +12,7 @@
     "url": "https://github.com/SalesforceCommerceCloud/instance-initializer/issues"
   },
   "scripts": {
-    "postinstall": "cp ./dw.json ../../dw.json npm explore workspace-bootstrap-scripts -- node scripts/postinstall.js && npm explore workspace-bootstrap-scripts -- shx",
+    "postinstall": "npm explore workspace-bootstrap-scripts -- node scripts/postinstall.js && npm explore workspace-bootstrap-scripts -- shx cp ./dw.json ../../dw.json",
     "auth": "sfcc-ci client:auth -D",
     "sandbox:create": "sfcc-ci sandbox:create -s -d -j --ttl 144 > ./node_modules/workspace-bootstrap-scripts/sandbox.output",
     "sandbox:postsandboxcreate": "npm explore workspace-bootstrap-scripts -- node scripts/postsandboxcreate.js && npm explore workspace-bootstrap-scripts -- shx cp ./dw.json ../../dw.json",

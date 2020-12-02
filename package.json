@@ -39,6 +39,7 @@
     "refarchdata": "git+ssh://git@github.com:SalesforceCommerceCloud/storefrontdata.git",
     "sfcc-ci": "^2.6.0",
     "sfra": "git+ssh://git@github.com:SalesforceCommerceCloud/storefront-reference-architecture.git#integration",
+    "sfra-webpack-builder": "git+ssh://git@github.com:SalesforceCommerceCloud/sfra-webpack-builder.git",
     "shx": "^0.3.2",
     "workspace-bootstrap-scripts": "git+ssh://git@github.com:SalesforceCommerceCloud/workspace-bootstrap-scripts.git"
   }

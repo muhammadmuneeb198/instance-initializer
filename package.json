@@ -38,7 +38,8 @@
     "plugin_serviceworker": "git+ssh://git@github.com:SalesforceCommerceCloud/plugin_serviceworker.git",
     "refarchdata": "git+ssh://git@github.com:SalesforceCommerceCloud/storefrontdata.git",
     "sfcc-ci": "^2.6.0",
-    "sfra": "git+https://muhammadmuneeb@bitbucket.org/royalcyberxdev/sfcc-rapid-dev.git#release/release1.1",
+    "sfra": "git+ssh://git@github.com:SalesforceCommerceCloud/storefront-reference-architecture.git#integration",
+    "sfra-webpack-builder": "git+ssh://git@github.com:SalesforceCommerceCloud/sfra-webpack-builder.git",
     "shx": "^0.3.2",
     "workspace-bootstrap-scripts": "git+ssh://git@github.com:SalesforceCommerceCloud/workspace-bootstrap-scripts.git"
   }
